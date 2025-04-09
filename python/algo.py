@@ -68,7 +68,7 @@ def fifth(n):
 @timer
 def pascal(n):
     line = [1]
-    max_width = n * 4  # Largeur estimée pour centrer
+    max_width = n * 4
 
     print(' '.join(map(str, line)).center(max_width))
 
