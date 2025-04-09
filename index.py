@@ -33,6 +33,7 @@ def third(x):
     array = [0, 1]
     for f in range(0, x-1):
         array.append(array[-1] + array[-2])
+        print(array)
     print(array[-1])
     
         
@@ -45,4 +46,4 @@ def third(x):
 
 # first()
 # second()
-third(2000)
+third(20)
