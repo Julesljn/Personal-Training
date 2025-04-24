@@ -67,4 +67,24 @@ from datetime import datetime
 # --------------------------------------------
 
 
-        
+
+# class Profesor():
+#     def __init__(self, name, old, matter):
+#         self.name = name
+#         self.old = old
+#         self.matter = matter
+
+#     def infos(self):
+#         print(f'Bonjour je suis {self.name}, j\'ai {self.old} ans. Matière : {self.matter}.')
+
+# class Student(Profesor):
+#     def __init__(self, name, old, matter):
+#         super().__init__(name, old, matter)
+#         self.matter = matter
+
+
+
+
+# p1 = Profesor('Jules', 19, 'Histoire')
+# s1 = Student('Drake', 54, p1.matter)
+# s1.infos()
