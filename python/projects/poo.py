@@ -1,6 +1,3 @@
-from datetime import datetime
-
-
 # class Agent:
 #     def __init__(self, nom):
 #         self.nom = nom
@@ -88,3 +85,9 @@ from datetime import datetime
 # p1 = Profesor('Jules', 19, 'Histoire')
 # s1 = Student('Drake', 54, p1.matter)
 # s1.infos()
+
+
+
+# --------------------------------------------
+
+
