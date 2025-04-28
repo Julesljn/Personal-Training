@@ -14,8 +14,10 @@ def timer(func):
 # 1 to 1 000 000
 @timer
 def first():
-    for x in range(1, 1000001):
-        print(x)
+    target = 1000000000
+    for x in range(1, target+1):
+        if x == target:
+            print(x)
 
 
 # multiplication table from 1 to 20
@@ -87,5 +89,5 @@ def pascal(n):
 # second()
 # third(20)
 # fourth(13)
-# fifth(1000)
-pascal(20)
+fifth(40)
+# pascal(20)

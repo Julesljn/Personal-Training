@@ -64,5 +64,4 @@ def points_in_circle(n_points, side_length=1.0, circle_radius=None, seed=None, s
 # print(square_root(242))
 # print(gcd(252, 105))
 # print(lcm(12, 18))
-for i in range(1):
-    print(points_in_circle(1000))
+print(points_in_circle(200))
