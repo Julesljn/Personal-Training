@@ -114,6 +114,26 @@ def dice_numpy(try_n):
         pourcentage = (counts[total] / try_n) * 100
         print(f"Somme {total} : {pourcentage:.2f}%")
 
+# -----------------------------------
+
+def random_normal(size, average=0.0, scale=1.0, show=False):
+    normal_list = (np.random.normal(loc=average, scale=scale, size=size)).tolist()
+    if show:
+        plt.hist(normal_list, bins=50, density=True)
+        plt.axvline(x=0, color='r', linestyle='-')
+        plt.show()
+    return print(f'Taille : {size}\nMoyenne : {np.mean(normal_list)} - {average}\nÉcart-type : {np.std(normal_list)} - {scale}')
+
+
+
+
+
+
+
+
+
+
+
 
 
 # print(square_root(242))
@@ -123,3 +143,4 @@ def dice_numpy(try_n):
 # dice(100_000_000)
 # dice_all_sums(100_000_000)
 # dice_numpy(500_000_000)
+random_normal(100_000, show=True)
