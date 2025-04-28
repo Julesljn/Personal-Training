@@ -66,7 +66,7 @@ def points_in_circle(n_points, side_length=1.0, circle_radius=None, seed=None, s
     return count_inside
 
 # -----------------------------------
-# Pas Opti
+# Pas opti mémoire
 
 @timer
 def dice(try_n):
@@ -81,7 +81,6 @@ def dice(try_n):
         print(f'{key} => {round((len(value) / try_n) * 100, 2)}')
 
 # -----------------------------------
-# Opti
 
 @timer
 def dice_all_sums(try_n):
@@ -98,7 +97,22 @@ def dice_all_sums(try_n):
         print(f"Somme {total} : {pourcentage:.2f}%")
 
 # -----------------------------------
+# Extremement Opti (NumPy) (GPT)
 
+@timer
+def dice_numpy(try_n):
+    dice_rolls = np.random.randint(1, 7, size=(try_n, 2))
+    sums = np.sum(dice_rolls, axis=1)
+    
+    counts = {i: 0 for i in range(2, 13)}
+    unique, counts_arr = np.unique(sums, return_counts=True)
+    
+    for val, count in zip(unique, counts_arr):
+        counts[val] = count
+
+    for total in range(2, 13):
+        pourcentage = (counts[total] / try_n) * 100
+        print(f"Somme {total} : {pourcentage:.2f}%")
 
 
 
@@ -106,5 +120,6 @@ def dice_all_sums(try_n):
 # print(gcd(252, 105))
 # print(lcm(12, 18))
 # print(points_in_circle(200))
-dice(100_000_000)
-dice_all_sums(100_000_000)
+# dice(100_000_000)
+# dice_all_sums(100_000_000)
+# dice_numpy(500_000_000)
