@@ -1,6 +1,18 @@
+import random
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        func(*args, **kwargs)
+        end = time.time()
+        print(f'Function time : {end - start:.4f}')
+    return wrapper
+
+# -----------------------------------
 
 def square_root(n):
     x = n / 2
@@ -54,9 +66,38 @@ def points_in_circle(n_points, side_length=1.0, circle_radius=None, seed=None, s
     return count_inside
 
 # -----------------------------------
+# Pas Opti
 
+@timer
+def dice(try_n):
+    target_ok = 0
+    groupes = {} # Dictionnaire clé => valeur
+    for i in range(try_n):
+        sum_dice = random.randint(1, 6) + random.randint(1, 6)
+        if sum_dice not in groupes: # Si la clé existe pas, on la crée
+            groupes[sum_dice] = []
+        groupes[sum_dice].append(sum_dice)
+    for key, value in sorted(groupes.items()):
+        print(f'{key} => {round((len(value) / try_n) * 100, 2)}')
 
+# -----------------------------------
+# Opti
 
+@timer
+def dice_all_sums(try_n):
+    sums_count = {i: 0 for i in range(2, 13)}
+
+    for _ in range(try_n):
+        dice_1 = random.randint(1, 6)
+        dice_2 = random.randint(1, 6)
+        sum_dice = dice_1 + dice_2
+        sums_count[sum_dice] += 1  # Incrémenter le compteur pour la somme obtenue
+
+    for total, count in sorted(sums_count.items()):
+        pourcentage = (count / try_n) * 100
+        print(f"Somme {total} : {pourcentage:.2f}%")
+
+# -----------------------------------
 
 
 
@@ -64,4 +105,6 @@ def points_in_circle(n_points, side_length=1.0, circle_radius=None, seed=None, s
 # print(square_root(242))
 # print(gcd(252, 105))
 # print(lcm(12, 18))
-print(points_in_circle(200))
+# print(points_in_circle(200))
+dice(100_000_000)
+dice_all_sums(100_000_000)
