@@ -124,6 +124,7 @@ def random_normal(size, average=0.0, scale=1.0, show=False):
         plt.show()
     return print(f'Taille : {size}\nMoyenne : {np.mean(normal_list)} - {average}\nÉcart-type : {np.std(normal_list)} - {scale}')
 
+# -----------------------------------
 
 
 
@@ -143,4 +144,5 @@ def random_normal(size, average=0.0, scale=1.0, show=False):
 # dice(100_000_000)
 # dice_all_sums(100_000_000)
 # dice_numpy(500_000_000)
-random_normal(100_000, show=True)
+# random_normal(100_000, show=True)
+print(knn())
